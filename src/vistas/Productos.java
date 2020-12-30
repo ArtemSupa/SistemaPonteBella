@@ -27,8 +27,7 @@ public class Productos extends javax.swing.JPanel {
      */
     public Productos() {
         initComponents();
-        Metodos met = new Metodos();
-        met.ConsultaComboboxCategoria(cbox_categoria);
+        
     }
     
     
@@ -110,7 +109,7 @@ public class Productos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        rSPanelMaterial1 = new RSMaterialComponent.RSPanelMaterial();
+        rSPanelMaterialprod = new RSMaterialComponent.RSPanelMaterial();
         txt_nombre_producto1 = new RSMaterialComponent.RSTextFieldTwo();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -123,12 +122,14 @@ public class Productos extends javax.swing.JPanel {
         btn_grabar1 = new RSMaterialComponent.RSButtonMaterialIconTwo();
         rSButtonMaterialIconTwo2 = new RSMaterialComponent.RSButtonMaterialIconTwo();
 
-        rSPanelMaterial1.setBackground(new java.awt.Color(255, 204, 204));
-        rSPanelMaterial1.setShadowBottom(false);
-        rSPanelMaterial1.setShadowLeft(false);
-        rSPanelMaterial1.setShadowRight(false);
-        rSPanelMaterial1.setShadowTop(false);
-        rSPanelMaterial1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setMinimumSize(new java.awt.Dimension(1000, 549));
+        setPreferredSize(new java.awt.Dimension(1000, 549));
+
+        rSPanelMaterialprod.setBackground(new java.awt.Color(255, 204, 204));
+        rSPanelMaterialprod.setShadowBottom(false);
+        rSPanelMaterialprod.setShadowLeft(false);
+        rSPanelMaterialprod.setShadowRight(false);
+        rSPanelMaterialprod.setShadowTop(false);
 
         txt_nombre_producto1.setBackground(new java.awt.Color(255, 204, 204));
         txt_nombre_producto1.setForeground(new java.awt.Color(0, 0, 0));
@@ -145,15 +146,12 @@ public class Productos extends javax.swing.JPanel {
                 txt_nombre_producto1KeyPressed(evt);
             }
         });
-        rSPanelMaterial1.add(txt_nombre_producto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 190, 40));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Nombre de producto");
-        rSPanelMaterial1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Valor de compra");
-        rSPanelMaterial1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
         txt_valor_compra1.setBackground(new java.awt.Color(255, 204, 204));
         txt_valor_compra1.setForeground(new java.awt.Color(0, 0, 0));
@@ -173,11 +171,9 @@ public class Productos extends javax.swing.JPanel {
                 txt_valor_compra1KeyTyped(evt);
             }
         });
-        rSPanelMaterial1.add(txt_valor_compra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 130, 40));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Categoria");
-        rSPanelMaterial1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
         txt_valor_venta1.setBackground(new java.awt.Color(255, 204, 204));
         txt_valor_venta1.setForeground(new java.awt.Color(0, 0, 0));
@@ -194,7 +190,6 @@ public class Productos extends javax.swing.JPanel {
                 txt_valor_venta1KeyTyped(evt);
             }
         });
-        rSPanelMaterial1.add(txt_valor_venta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 130, 40));
 
         cbox_categoria.setBackground(new java.awt.Color(255, 204, 204));
         cbox_categoria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione una categoria" }));
@@ -209,16 +204,13 @@ public class Productos extends javax.swing.JPanel {
                 cbox_categoriaActionPerformed(evt);
             }
         });
-        rSPanelMaterial1.add(cbox_categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 190, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Valor de venta");
-        rSPanelMaterial1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
         txt_imagen1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txt_imagen1.setText("Foto");
         txt_imagen1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        rSPanelMaterial1.add(txt_imagen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 490, 290));
 
         btn_grabar1.setBackground(new java.awt.Color(255, 153, 204));
         btn_grabar1.setText("Guardar producto");
@@ -230,7 +222,6 @@ public class Productos extends javax.swing.JPanel {
                 btn_grabar1ActionPerformed(evt);
             }
         });
-        rSPanelMaterial1.add(btn_grabar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 220, -1));
 
         rSButtonMaterialIconTwo2.setBackground(new java.awt.Color(255, 153, 204));
         rSButtonMaterialIconTwo2.setText("Seleccionar imagen");
@@ -242,17 +233,76 @@ public class Productos extends javax.swing.JPanel {
                 rSButtonMaterialIconTwo2ActionPerformed(evt);
             }
         });
-        rSPanelMaterial1.add(rSButtonMaterialIconTwo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, 470, -1));
+
+        javax.swing.GroupLayout rSPanelMaterialprodLayout = new javax.swing.GroupLayout(rSPanelMaterialprod);
+        rSPanelMaterialprod.setLayout(rSPanelMaterialprodLayout);
+        rSPanelMaterialprodLayout.setHorizontalGroup(
+            rSPanelMaterialprodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(rSPanelMaterialprodLayout.createSequentialGroup()
+                .addGroup(rSPanelMaterialprodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(rSPanelMaterialprodLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addGroup(rSPanelMaterialprodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))
+                        .addGap(21, 21, 21)
+                        .addGroup(rSPanelMaterialprodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_nombre_producto1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_valor_compra1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_valor_venta1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbox_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addComponent(txt_imagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(rSPanelMaterialprodLayout.createSequentialGroup()
+                        .addGap(440, 440, 440)
+                        .addComponent(rSButtonMaterialIconTwo2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(rSPanelMaterialprodLayout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(btn_grabar1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
+        rSPanelMaterialprodLayout.setVerticalGroup(
+            rSPanelMaterialprodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(rSPanelMaterialprodLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addGroup(rSPanelMaterialprodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(rSPanelMaterialprodLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel1)
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel2)
+                        .addGap(53, 53, 53)
+                        .addComponent(jLabel4)
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel3))
+                    .addGroup(rSPanelMaterialprodLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(txt_nombre_producto1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(txt_valor_compra1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(txt_valor_venta1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(cbox_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_imagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addComponent(rSButtonMaterialIconTwo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btn_grabar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(69, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rSPanelMaterial1, javax.swing.GroupLayout.DEFAULT_SIZE, 906, Short.MAX_VALUE)
+            .addComponent(rSPanelMaterialprod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rSPanelMaterial1, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
+            .addComponent(rSPanelMaterialprod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -273,9 +323,9 @@ public class Productos extends javax.swing.JPanel {
     }//GEN-LAST:event_cbox_categoriaActionPerformed
     File fichero;
     private void btn_grabar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_grabar1ActionPerformed
-        if(validacionProductos()==false){
-          return;
-        }
+//        if(validacionProductos()==false){
+//          return;
+//        }
         
         Metodos met = new Metodos();
         Producto objProducto = new Producto();
@@ -394,7 +444,7 @@ public class Productos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private RSMaterialComponent.RSButtonMaterialIconTwo rSButtonMaterialIconTwo2;
-    private RSMaterialComponent.RSPanelMaterial rSPanelMaterial1;
+    public RSMaterialComponent.RSPanelMaterial rSPanelMaterialprod;
     private javax.swing.JLabel txt_imagen1;
     private RSMaterialComponent.RSTextFieldTwo txt_nombre_producto1;
     private RSMaterialComponent.RSTextFieldTwo txt_valor_compra1;

@@ -30,9 +30,13 @@ public class Compras extends javax.swing.JPanel {
         rSPanelMaterial1 = new RSMaterialComponent.RSPanelMaterial();
         jLabel1 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(910, 460));
+        setPreferredSize(new java.awt.Dimension(910, 460));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rSPanelMaterial1.setBackground(new java.awt.Color(255, 204, 204));
+        rSPanelMaterial1.setMinimumSize(new java.awt.Dimension(860, 387));
+        rSPanelMaterial1.setPreferredSize(new java.awt.Dimension(910, 460));
         rSPanelMaterial1.setShadowBottom(false);
         rSPanelMaterial1.setShadowLeft(false);
         rSPanelMaterial1.setShadowRight(false);
@@ -56,10 +60,10 @@ public class Compras extends javax.swing.JPanel {
             .addGroup(rSPanelMaterial1Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
-        add(rSPanelMaterial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 440));
+        add(rSPanelMaterial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 460));
     }// </editor-fold>//GEN-END:initComponents
 
 

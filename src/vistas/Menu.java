@@ -22,6 +22,12 @@ public class Menu extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
+        pnSlider.setPanelSlider(1,pnl_inicio, RSPanelsSlider.DIRECT.RIGHT);
+        Metodos met = new Metodos();
+        
+        met.ConsultaComboboxCategoria(cbox_categoria);
+        pnl_menuProd.setVisible(false);
+        
     }
     
     
@@ -41,20 +47,19 @@ public class Menu extends javax.swing.JFrame {
         btn_compras = new RSMaterialComponent.RSButtonMaterialIconOne();
         btn_productos2 = new RSMaterialComponent.RSButtonMaterialIconOne();
         rSPanelMaterialImage1 = new RSMaterialComponent.RSPanelMaterialImage();
-        jPanel1 = new javax.swing.JPanel();
         btn_minimizar = new RSMaterialComponent.RSButtonIconOne();
+        jPanel1 = new javax.swing.JPanel();
         btn_cerrar = new RSMaterialComponent.RSButtonIconOne();
         jLabel1 = new javax.swing.JLabel();
         pnSlider = new rojerusan.RSPanelsSlider();
-        pnl_productos = new vistas.Productos();
-        pnl_ventas = new vistas.Ventas();
-        pnl_compras = new vistas.Compras();
+        pnl_inicio = new vistas.Inicio();
+        pnl_menuProd = new vistas.MenuProductos();
+        rSPanelMaterial1 = new RSMaterialComponent.RSPanelMaterial();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 204, 204));
         setUndecorated(true);
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rSPanelBorderGradient1.setBorderBottom(false);
         rSPanelBorderGradient1.setBorderLeft(false);
@@ -109,7 +114,7 @@ public class Menu extends javax.swing.JFrame {
 
         rSPanelMaterialImage1.setBackground(new java.awt.Color(255, 102, 153));
         rSPanelMaterialImage1.setBgShade(new java.awt.Color(255, 102, 153));
-        rSPanelMaterialImage1.setImagen(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logoscarlet.png"))); // NOI18N
+        rSPanelMaterialImage1.setImagen(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logoscarletSinCirculo.png"))); // NOI18N
         rSPanelMaterialImage1.setShadowBottom(false);
         rSPanelMaterialImage1.setShadowLeft(false);
         rSPanelMaterialImage1.setShadowRight(false);
@@ -128,10 +133,6 @@ public class Menu extends javax.swing.JFrame {
 
         rSPanelBorderGradient1.add(rSPanelMaterialImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 190));
 
-        getContentPane().add(rSPanelBorderGradient1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 500));
-
-        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
-
         btn_minimizar.setBackground(new java.awt.Color(255, 204, 204));
         btn_minimizar.setForeground(new java.awt.Color(0, 0, 0));
         btn_minimizar.setBackgroundHover(new java.awt.Color(0, 0, 0));
@@ -143,6 +144,8 @@ public class Menu extends javax.swing.JFrame {
                 btn_minimizarActionPerformed(evt);
             }
         });
+
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
 
         btn_cerrar.setBackground(new java.awt.Color(255, 204, 204));
         btn_cerrar.setForeground(new java.awt.Color(0, 0, 0));
@@ -161,21 +164,15 @@ public class Menu extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(823, Short.MAX_VALUE)
-                .addComponent(btn_minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btn_cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btn_cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 16, Short.MAX_VALUE))
         );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 910, 40));
 
         jLabel1.setBackground(new java.awt.Color(255, 204, 204));
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -189,21 +186,59 @@ public class Menu extends javax.swing.JFrame {
                 jLabel1MousePressed(evt);
             }
         });
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 798, 24));
 
         pnSlider.setBackground(new java.awt.Color(255, 204, 204));
         pnSlider.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pnl_productos.setName("pnl_productos"); // NOI18N
-        pnSlider.add(pnl_productos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
+        pnl_inicio.setName("pnl_inicio"); // NOI18N
+        pnSlider.add(pnl_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        pnl_ventas.setName("pnl_ventas"); // NOI18N
-        pnSlider.add(pnl_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
+        pnl_menuProd.setName("pnl_menuProd"); // NOI18N
+        pnSlider.add(pnl_menuProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        pnl_compras.setName("pnl_compras"); // NOI18N
-        pnSlider.add(pnl_compras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
+        rSPanelMaterial1.setBackground(new java.awt.Color(224, 180, 180));
+        rSPanelMaterial1.setShadowBottom(false);
+        rSPanelMaterial1.setShadowLeft(false);
+        rSPanelMaterial1.setShadowRight(false);
+        rSPanelMaterial1.setShadowTop(false);
 
-        getContentPane().add(pnSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 40, 910, 460));
+        javax.swing.GroupLayout rSPanelMaterial1Layout = new javax.swing.GroupLayout(rSPanelMaterial1);
+        rSPanelMaterial1.setLayout(rSPanelMaterial1Layout);
+        rSPanelMaterial1Layout.setHorizontalGroup(
+            rSPanelMaterial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 150, Short.MAX_VALUE)
+        );
+        rSPanelMaterial1Layout.setVerticalGroup(
+            rSPanelMaterial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
+        );
+
+        pnSlider.add(rSPanelMaterial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 150, 60));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(rSPanelBorderGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1040, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1070, 1070, 1070)
+                        .addComponent(btn_minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(rSPanelBorderGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pnSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
         setLocationRelativeTo(null);
@@ -232,36 +267,37 @@ public class Menu extends javax.swing.JFrame {
             btn_home.setSelected(true);
             btn_ventas.setSelected(false);
             btn_compras.setSelected(false);
-            pnSlider.setPanelSlider(1, pnl_ventas, RSPanelsSlider.DIRECT.RIGHT);
+            pnSlider.setPanelSlider(1, pnl_inicio, RSPanelsSlider.DIRECT.RIGHT);
             
         }
     }//GEN-LAST:event_btn_homeActionPerformed
 
     private void btn_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ventasActionPerformed
-       if(!btn_ventas.isSelected()){
-            btn_productos2.setSelected(false);
-            btn_home.setSelected(false);
-            btn_ventas.setSelected(true);
-            btn_compras.setSelected(false);
-            pnSlider.setPanelSlider(1, pnl_ventas, RSPanelsSlider.DIRECT.RIGHT);
-            
-        }
+//       if(!btn_ventas.isSelected()){
+//            btn_productos2.setSelected(false);
+//            btn_home.setSelected(false);
+//            btn_ventas.setSelected(true);
+//            btn_compras.setSelected(false);
+//            pnSlider.setPanelSlider(1, pnl_ventas, RSPanelsSlider.DIRECT.RIGHT);
+//            
+////        }
     }//GEN-LAST:event_btn_ventasActionPerformed
 
     private void btn_comprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_comprasActionPerformed
-        if(!btn_compras.isSelected()){
-            btn_productos2.setSelected(false);
-            btn_home.setSelected(false);
-            btn_ventas.setSelected(false);
-            btn_compras.setSelected(true);
+//        if(!btn_compras.isSelected()){
+//            btn_productos2.setSelected(false);
+//            btn_home.setSelected(false);
+//            btn_ventas.setSelected(false);
+//            btn_compras.setSelected(true);
             
-            pnSlider.setPanelSlider(1, pnl_compras, RSPanelsSlider.DIRECT.RIGHT);
-            
-        }
+//            pnSlider.setPanelSlider(1, pnl_compras, RSPanelsSlider.DIRECT.RIGHT);
+//            
+//        }
     }//GEN-LAST:event_btn_comprasActionPerformed
 
     private void btn_productos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_productos2ActionPerformed
-         
+       
+        
         
         if(!btn_productos2.isSelected()){
             
@@ -269,10 +305,16 @@ public class Menu extends javax.swing.JFrame {
             btn_home.setSelected(false);
             btn_ventas.setSelected(false);
             btn_compras.setSelected(false);
-            
-            pnSlider.setPanelSlider(1, pnl_productos, RSPanelsSlider.DIRECT.RIGHT);
-            
+
+            pnSlider.setPanelSlider(1, pnl_menuProd, RSPanelsSlider.DIRECT.RIGHT);
+           
         }
+        
+       
+        
+            
+        
+
     }//GEN-LAST:event_btn_productos2ActionPerformed
 
     /**
@@ -312,18 +354,18 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private RSMaterialComponent.RSButtonIconOne btn_cerrar;
-    private RSMaterialComponent.RSButtonMaterialIconOne btn_compras;
-    private RSMaterialComponent.RSButtonMaterialIconOne btn_home;
+    public RSMaterialComponent.RSButtonMaterialIconOne btn_compras;
+    public RSMaterialComponent.RSButtonMaterialIconOne btn_home;
     private RSMaterialComponent.RSButtonIconOne btn_minimizar;
-    private RSMaterialComponent.RSButtonMaterialIconOne btn_productos2;
-    private RSMaterialComponent.RSButtonMaterialIconOne btn_ventas;
+    public RSMaterialComponent.RSButtonMaterialIconOne btn_productos2;
+    public RSMaterialComponent.RSButtonMaterialIconOne btn_ventas;
     public javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private rojerusan.RSPanelsSlider pnSlider;
-    private vistas.Compras pnl_compras;
-    private vistas.Productos pnl_productos;
-    private vistas.Ventas pnl_ventas;
+    public rojerusan.RSPanelsSlider pnSlider;
+    private vistas.Inicio pnl_inicio;
+    private vistas.MenuProductos pnl_menuProd;
     private RSMaterialComponent.RSPanelBorderGradient rSPanelBorderGradient1;
+    private RSMaterialComponent.RSPanelMaterial rSPanelMaterial1;
     private RSMaterialComponent.RSPanelMaterialImage rSPanelMaterialImage1;
     // End of variables declaration//GEN-END:variables
 }

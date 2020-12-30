@@ -15,6 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
@@ -172,4 +173,45 @@ public class Metodos {
         }
         return 0;
    }
+   
+   public ArrayList<Producto> ListarDatosProducto( ){
+        ArrayList<Producto> listProducto = new ArrayList<Producto>();
+   
+        Conexion con =  new Conexion();
+        Connection c = con.conectar();
+                
+        try {
+           Statement s = c.createStatement();           
+           String consulta = "Select prod_nombre,prod_valorcompra,prod_valorventa,prod_stock,prod_estado from producto ";       
+          
+
+           ResultSet res = s.executeQuery(consulta);
+           
+           while (res.next()){
+               
+               Producto objProducto= new Producto();
+               
+               objProducto.setNombreProd(res.getObject("prod_nombre").toString());
+               objProducto.setValorCompraProd(Integer.parseInt(res.getObject("prod_valorcompra").toString()));
+               objProducto.setValorVentaProd(Integer.parseInt(res.getObject("prod_valorventa").toString()));
+               objProducto.setStockProd(Integer.parseInt(res.getObject("prod_stock").toString()));
+               objProducto.setEstadoProd(res.getObject("prod_estado").toString());
+               
+               listProducto.add(objProducto);
+               
+           }
+                    c.close();
+           
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }        
+        
+        return listProducto;
+    }  
+   
+   
+   
+   
+   
+   
 }
