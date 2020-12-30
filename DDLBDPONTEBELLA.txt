@@ -1,0 +1,91 @@
+drop table Detalleingreso;
+drop table detalleventa;
+drop table ingresomercaderia;
+drop table producto;
+drop table categoriaproducto;
+drop table Venta;
+
+
+
+CREATE TABLE categoriaproducto (
+    id_categoria      INTEGER NOT NULL,
+    cate_nombre       NVARCHAR2(20) NOT NULL,
+    cate_descripcion  NVARCHAR2(100) NOT NULL,
+    cate_estado       NVARCHAR2(15) NOT NULL
+);
+
+ALTER TABLE categoriaproducto ADD CONSTRAINT categoriaproducto_pk PRIMARY KEY ( id_categoria );
+
+CREATE TABLE detalleingreso (
+    id_detalle_ingreso  INTEGER NOT NULL,
+    detaingr_cantidad   INTEGER NOT NULL,
+    detaingr_precio     INTEGER NOT NULL,
+    detaingr_descuento  INTEGER NOT NULL,
+    prod_codigo         VARCHAR2(10) NOT NULL,
+    id_ingreso          INTEGER NOT NULL
+);
+
+ALTER TABLE detalleingreso ADD CONSTRAINT detalleingreso_pk PRIMARY KEY ( id_detalle_ingreso );
+
+CREATE TABLE detalleventa (
+    id_detalle_venta  INTEGER NOT NULL,
+    deta_cantidad     INTEGER NOT NULL,
+    deta_precio       INTEGER NOT NULL,
+    deta_descuento    INTEGER,
+    prod_codigo       VARCHAR2(10) NOT NULL,
+    id_venta          INTEGER NOT NULL
+);
+
+ALTER TABLE detalleventa ADD CONSTRAINT detalleventa_pk PRIMARY KEY ( id_detalle_venta );
+
+CREATE TABLE ingresomercaderia (
+    id_ingreso   INTEGER NOT NULL,
+    ingr_fecha   DATE NOT NULL,
+    ingr_total   INTEGER NOT NULL,
+    ingr_estado  NVARCHAR2(15) NOT NULL
+);
+
+ALTER TABLE ingresomercaderia ADD CONSTRAINT ingresomercaderia_pk PRIMARY KEY ( id_ingreso );
+
+CREATE TABLE producto (
+    prod_codigo       VARCHAR2(25) NOT NULL,
+    prod_nombre       NVARCHAR2(50) NOT NULL,
+    prod_valorcompra  INTEGER,
+    prod_valorventa   INTEGER NOT NULL,
+    prod_stock        INTEGER,
+    id_categoria      INTEGER NOT NULL,
+    prod_imagen       BLOB,
+    prod_estado       NVARCHAR2(15) NOT NULL
+);
+
+ALTER TABLE producto ADD CONSTRAINT producto_pk PRIMARY KEY ( prod_codigo );
+
+CREATE TABLE venta (
+    id_venta       INTEGER NOT NULL,
+    vent_fecha     DATE NOT NULL,
+    venta_total    INTEGER NOT NULL,
+    vent_subtotal  INTEGER NOT NULL,
+    vent_estado    NVARCHAR2(15) NOT NULL
+);
+
+ALTER TABLE venta ADD CONSTRAINT venta_pk PRIMARY KEY ( id_venta );
+
+ALTER TABLE detalleingreso
+    ADD CONSTRAINT detalleingreso_ingrmerc_fk FOREIGN KEY ( id_ingreso )
+        REFERENCES ingresomercaderia ( id_ingreso );
+
+ALTER TABLE detalleingreso
+    ADD CONSTRAINT detalleingreso_producto_fk FOREIGN KEY ( prod_codigo )
+        REFERENCES producto ( prod_codigo );
+
+ALTER TABLE detalleventa
+    ADD CONSTRAINT detalleventa_producto_fk FOREIGN KEY ( prod_codigo )
+        REFERENCES producto ( prod_codigo );
+
+ALTER TABLE detalleventa
+    ADD CONSTRAINT detalleventa_venta_fk FOREIGN KEY ( id_venta )
+        REFERENCES venta ( id_venta );
+
+ALTER TABLE producto
+    ADD CONSTRAINT producto_catproducto_fk FOREIGN KEY ( id_categoria )
+        REFERENCES categoriaproducto ( id_categoria );

@@ -5,7 +5,6 @@
  */
 package vistas;
 
-import com.sun.org.apache.xml.internal.dtm.DTM;
 import controlador.Metodos;
 import java.awt.Color;
 import java.awt.event.KeyAdapter;
@@ -14,12 +13,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
-import javax.swing.RowSorter;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import modelo.Producto;
-import rojerusan.RSPanelsSlider;
 
 /**
  *
