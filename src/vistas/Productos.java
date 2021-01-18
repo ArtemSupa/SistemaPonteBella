@@ -323,9 +323,9 @@ public class Productos extends javax.swing.JPanel {
     }//GEN-LAST:event_cbox_categoriaActionPerformed
     File fichero;
     private void btn_grabar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_grabar1ActionPerformed
-//        if(validacionProductos()==false){
-//          return;
-//        }
+        if(validacionProductos()==false){
+          return;
+        }
         
         Metodos met = new Metodos();
         Producto objProducto = new Producto();

@@ -22,11 +22,8 @@ public class Menu extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
-        pnSlider.setPanelSlider(1,pnl_inicio, RSPanelsSlider.DIRECT.RIGHT);
-        Metodos met = new Metodos();
+       
         
-        met.ConsultaComboboxCategoria(cbox_categoria);
-        pnl_menuProd.setVisible(false);
         
     }
     
@@ -50,11 +47,8 @@ public class Menu extends javax.swing.JFrame {
         btn_minimizar = new RSMaterialComponent.RSButtonIconOne();
         jPanel1 = new javax.swing.JPanel();
         btn_cerrar = new RSMaterialComponent.RSButtonIconOne();
-        jLabel1 = new javax.swing.JLabel();
-        pnSlider = new rojerusan.RSPanelsSlider();
-        pnl_inicio = new vistas.Inicio();
-        pnl_menuProd = new vistas.MenuProductos();
         rSPanelMaterial1 = new RSMaterialComponent.RSPanelMaterial();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 204, 204));
@@ -159,6 +153,23 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        rSPanelMaterial1.setBackground(new java.awt.Color(255, 204, 204));
+        rSPanelMaterial1.setShadowBottom(false);
+        rSPanelMaterial1.setShadowLeft(false);
+        rSPanelMaterial1.setShadowRight(false);
+        rSPanelMaterial1.setShadowTop(false);
+
+        javax.swing.GroupLayout rSPanelMaterial1Layout = new javax.swing.GroupLayout(rSPanelMaterial1);
+        rSPanelMaterial1.setLayout(rSPanelMaterial1Layout);
+        rSPanelMaterial1Layout.setHorizontalGroup(
+            rSPanelMaterial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1150, Short.MAX_VALUE)
+        );
+        rSPanelMaterial1Layout.setVerticalGroup(
+            rSPanelMaterial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 558, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -166,12 +177,17 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btn_cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(rSPanelMaterial1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(btn_cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rSPanelMaterial1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jLabel1.setBackground(new java.awt.Color(255, 204, 204));
@@ -187,57 +203,28 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        pnSlider.setBackground(new java.awt.Color(255, 204, 204));
-        pnSlider.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        pnl_inicio.setName("pnl_inicio"); // NOI18N
-        pnSlider.add(pnl_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        pnl_menuProd.setName("pnl_menuProd"); // NOI18N
-        pnSlider.add(pnl_menuProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        rSPanelMaterial1.setBackground(new java.awt.Color(224, 180, 180));
-        rSPanelMaterial1.setShadowBottom(false);
-        rSPanelMaterial1.setShadowLeft(false);
-        rSPanelMaterial1.setShadowRight(false);
-        rSPanelMaterial1.setShadowTop(false);
-
-        javax.swing.GroupLayout rSPanelMaterial1Layout = new javax.swing.GroupLayout(rSPanelMaterial1);
-        rSPanelMaterial1.setLayout(rSPanelMaterial1Layout);
-        rSPanelMaterial1Layout.setHorizontalGroup(
-            rSPanelMaterial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
-        );
-        rSPanelMaterial1Layout.setVerticalGroup(
-            rSPanelMaterial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
-        );
-
-        pnSlider.add(rSPanelMaterial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 150, 60));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(rSPanelBorderGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1040, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1070, 1070, 1070)
                         .addComponent(btn_minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pnSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rSPanelBorderGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(rSPanelBorderGradient1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addComponent(pnSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -262,59 +249,21 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1MouseDragged
 
     private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
-        if(!btn_home.isSelected()){
-            btn_productos2.setSelected(false);
-            btn_home.setSelected(true);
-            btn_ventas.setSelected(false);
-            btn_compras.setSelected(false);
-            pnSlider.setPanelSlider(1, pnl_inicio, RSPanelsSlider.DIRECT.RIGHT);
-            
-        }
+
     }//GEN-LAST:event_btn_homeActionPerformed
 
     private void btn_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ventasActionPerformed
-//       if(!btn_ventas.isSelected()){
-//            btn_productos2.setSelected(false);
-//            btn_home.setSelected(false);
-//            btn_ventas.setSelected(true);
-//            btn_compras.setSelected(false);
-//            pnSlider.setPanelSlider(1, pnl_ventas, RSPanelsSlider.DIRECT.RIGHT);
-//            
-////        }
+
     }//GEN-LAST:event_btn_ventasActionPerformed
 
     private void btn_comprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_comprasActionPerformed
-//        if(!btn_compras.isSelected()){
-//            btn_productos2.setSelected(false);
-//            btn_home.setSelected(false);
-//            btn_ventas.setSelected(false);
-//            btn_compras.setSelected(true);
-            
-//            pnSlider.setPanelSlider(1, pnl_compras, RSPanelsSlider.DIRECT.RIGHT);
-//            
-//        }
+      
     }//GEN-LAST:event_btn_comprasActionPerformed
 
     private void btn_productos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_productos2ActionPerformed
-       
-        
-        
-        if(!btn_productos2.isSelected()){
-            
-            btn_productos2.setSelected(true);
-            btn_home.setSelected(false);
-            btn_ventas.setSelected(false);
-            btn_compras.setSelected(false);
-
-            pnSlider.setPanelSlider(1, pnl_menuProd, RSPanelsSlider.DIRECT.RIGHT);
-           
-        }
-        
-       
-        
-            
-        
-
+        MenuProductosF menprodf = new MenuProductosF();
+        menprodf.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btn_productos2ActionPerformed
 
     /**
@@ -361,9 +310,6 @@ public class Menu extends javax.swing.JFrame {
     public RSMaterialComponent.RSButtonMaterialIconOne btn_ventas;
     public javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    public rojerusan.RSPanelsSlider pnSlider;
-    private vistas.Inicio pnl_inicio;
-    private vistas.MenuProductos pnl_menuProd;
     private RSMaterialComponent.RSPanelBorderGradient rSPanelBorderGradient1;
     private RSMaterialComponent.RSPanelMaterial rSPanelMaterial1;
     private RSMaterialComponent.RSPanelMaterialImage rSPanelMaterialImage1;

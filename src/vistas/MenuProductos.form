@@ -149,28 +149,6 @@
           <AbsoluteConstraints x="150" y="0" width="1000" height="550"/>
         </Constraint>
       </Constraints>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="cargaMenuProd1" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="pnl_ingreProd" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="pnl_consultarProd" alignment="1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="cargaMenuProd1" min="-2" max="-2" attributes="0"/>
-              <Component id="pnl_ingreProd" min="-2" pref="550" max="-2" attributes="0"/>
-              <Component id="pnl_consultarProd" min="-2" max="-2" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-      </Layout>
       <SubComponents>
         <Component class="vistas.CargaMenuProd" name="cargaMenuProd1">
           <Properties>
@@ -183,14 +161,6 @@
         <Component class="vistas.Productos" name="pnl_ingreProd">
           <Properties>
             <Property name="name" type="java.lang.String" value="pnl_ingreProd" noResource="true"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-        </Component>
-        <Component class="vistas.ConsuProd" name="pnl_consultarProd">
-          <Properties>
-            <Property name="name" type="java.lang.String" value="pnl_consultarProd" noResource="true"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

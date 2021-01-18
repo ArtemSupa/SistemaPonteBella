@@ -25,6 +25,7 @@ public class MenuProductos extends javax.swing.JPanel {
         pnl_consultarProd.setVisible(false);
         pnl_sliderProd.setPanelSlider(1,cargaMenuProd1 , RSPanelsSlider.DIRECT.RIGHT);
         
+        
     }
 
     /**
@@ -152,7 +153,7 @@ public class MenuProductos extends javax.swing.JPanel {
             btn_ingProd.setSelected(true);
             btn_consProd.setSelected(false);
             pnl_sliderProd.setPanelSlider(1,pnl_ingreProd , RSPanelsSlider.DIRECT.RIGHT);
-            
+
         }
     }//GEN-LAST:event_btn_ingProdActionPerformed
 
@@ -162,9 +163,9 @@ public class MenuProductos extends javax.swing.JPanel {
             btn_ingProd.setSelected(false);
             btn_consProd.setSelected(true);
             pnl_sliderProd.setPanelSlider(1, pnl_consultarProd, RSPanelsSlider.DIRECT.RIGHT);
-            
+     
         }
-      
+            
     }//GEN-LAST:event_btn_consProdActionPerformed
 
 
