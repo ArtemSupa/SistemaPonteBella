@@ -36,7 +36,6 @@ public class MenuProductosF extends javax.swing.JFrame {
         rSButtonBigIcon_new1 = new newscomponents.RSButtonBigIcon_new();
         rSButtonBigIcon_new2 = new newscomponents.RSButtonBigIcon_new();
         rSButtonBigIcon_new3 = new newscomponents.RSButtonBigIcon_new();
-        rSButtonBigIcon_new4 = new newscomponents.RSButtonBigIcon_new();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -106,6 +105,9 @@ public class MenuProductosF extends javax.swing.JFrame {
         rSButtonBigIcon_new1.setBgHover(new java.awt.Color(220, 175, 175));
         rSButtonBigIcon_new1.setBgShade(new java.awt.Color(255, 204, 204));
         rSButtonBigIcon_new1.setBgShadeHover(new java.awt.Color(255, 204, 204));
+        rSButtonBigIcon_new1.setFgIcon(new java.awt.Color(204, 102, 255));
+        rSButtonBigIcon_new1.setFgText(new java.awt.Color(204, 102, 255));
+        rSButtonBigIcon_new1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ADD);
         rSButtonBigIcon_new1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rSButtonBigIcon_new1ActionPerformed(evt);
@@ -118,6 +120,14 @@ public class MenuProductosF extends javax.swing.JFrame {
         rSButtonBigIcon_new2.setBgHover(new java.awt.Color(220, 175, 175));
         rSButtonBigIcon_new2.setBgShade(new java.awt.Color(255, 204, 204));
         rSButtonBigIcon_new2.setBgShadeHover(new java.awt.Color(255, 204, 204));
+        rSButtonBigIcon_new2.setFgIcon(new java.awt.Color(204, 102, 255));
+        rSButtonBigIcon_new2.setFgText(new java.awt.Color(204, 102, 255));
+        rSButtonBigIcon_new2.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.VISIBILITY);
+        rSButtonBigIcon_new2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonBigIcon_new2ActionPerformed(evt);
+            }
+        });
         rSPanelMaterial1.add(rSButtonBigIcon_new2, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 171, 181, 185));
 
         rSButtonBigIcon_new3.setBackground(new java.awt.Color(255, 204, 204));
@@ -125,14 +135,15 @@ public class MenuProductosF extends javax.swing.JFrame {
         rSButtonBigIcon_new3.setBgHover(new java.awt.Color(220, 175, 175));
         rSButtonBigIcon_new3.setBgShade(new java.awt.Color(255, 204, 204));
         rSButtonBigIcon_new3.setBgShadeHover(new java.awt.Color(255, 204, 204));
+        rSButtonBigIcon_new3.setFgIcon(new java.awt.Color(204, 102, 255));
+        rSButtonBigIcon_new3.setFgText(new java.awt.Color(204, 102, 255));
+        rSButtonBigIcon_new3.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EDIT);
+        rSButtonBigIcon_new3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonBigIcon_new3ActionPerformed(evt);
+            }
+        });
         rSPanelMaterial1.add(rSButtonBigIcon_new3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 171, 181, 185));
-
-        rSButtonBigIcon_new4.setBackground(new java.awt.Color(255, 204, 204));
-        rSButtonBigIcon_new4.setText("Eliminar productos");
-        rSButtonBigIcon_new4.setBgHover(new java.awt.Color(220, 175, 175));
-        rSButtonBigIcon_new4.setBgShade(new java.awt.Color(255, 204, 204));
-        rSButtonBigIcon_new4.setBgShadeHover(new java.awt.Color(255, 204, 204));
-        rSPanelMaterial1.add(rSButtonBigIcon_new4, new org.netbeans.lib.awtextra.AbsoluteConstraints(907, 171, 181, 185));
 
         getContentPane().add(rSPanelMaterial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 37, 1330, 550));
 
@@ -168,6 +179,18 @@ public class MenuProductosF extends javax.swing.JFrame {
         m.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_rSButtonIcon_new1ActionPerformed
+
+    private void rSButtonBigIcon_new2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonBigIcon_new2ActionPerformed
+        PROD_verProd verprod = new PROD_verProd();
+        verprod.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_rSButtonBigIcon_new2ActionPerformed
+
+    private void rSButtonBigIcon_new3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonBigIcon_new3ActionPerformed
+        PROD_editProd editprod = new PROD_editProd();
+        editprod.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_rSButtonBigIcon_new3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,7 +232,6 @@ public class MenuProductosF extends javax.swing.JFrame {
     private newscomponents.RSButtonBigIcon_new rSButtonBigIcon_new1;
     private newscomponents.RSButtonBigIcon_new rSButtonBigIcon_new2;
     private newscomponents.RSButtonBigIcon_new rSButtonBigIcon_new3;
-    private newscomponents.RSButtonBigIcon_new rSButtonBigIcon_new4;
     private RSMaterialComponent.RSButtonIconOne rSButtonIconOne1;
     private RSMaterialComponent.RSButtonIconOne rSButtonIconOne2;
     private newscomponents.RSButtonIcon_new rSButtonIcon_new1;

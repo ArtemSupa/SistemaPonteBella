@@ -4,10 +4,12 @@
  * and open the template in the editor.
  */
 package vistas;
-import vistas.Productos;
 import controlador.Metodos;
-import rojerusan.RSPanelsSlider;
-import static vistas.Productos.cbox_categoria;
+import java.awt.Color;
+import javax.swing.JOptionPane;
+import modelo.VentaMercaderiaDetalle;
+
+
 /**
  *
  * @author ArtemSupa
@@ -21,13 +23,12 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
-       
-        
-        
+        Metodos met = new Metodos();
+        met.ConsultaComboboxProducto(cbox_producto);
+   
     }
     
-    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,7 +40,6 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         rSPanelBorderGradient1 = new RSMaterialComponent.RSPanelBorderGradient();
-        btn_home = new RSMaterialComponent.RSButtonMaterialIconOne();
         btn_ventas = new RSMaterialComponent.RSButtonMaterialIconOne();
         btn_compras = new RSMaterialComponent.RSButtonMaterialIconOne();
         btn_productos2 = new RSMaterialComponent.RSButtonMaterialIconOne();
@@ -48,6 +48,9 @@ public class Menu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btn_cerrar = new RSMaterialComponent.RSButtonIconOne();
         rSPanelMaterial1 = new RSMaterialComponent.RSPanelMaterial();
+        rSPanelMaterial2 = new RSMaterialComponent.RSPanelMaterial();
+        cbox_producto = new RSMaterialComponent.RSComboBoxMaterial();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,17 +66,6 @@ public class Menu extends javax.swing.JFrame {
         rSPanelBorderGradient1.setColorSecundario(new java.awt.Color(255, 102, 153));
         rSPanelBorderGradient1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_home.setBackground(new java.awt.Color(255, 153, 153));
-        btn_home.setText("Home");
-        btn_home.setBackgroundHover(new java.awt.Color(255, 51, 204));
-        btn_home.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.HOME);
-        btn_home.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_homeActionPerformed(evt);
-            }
-        });
-        rSPanelBorderGradient1.add(btn_home, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 190, -1));
-
         btn_ventas.setBackground(new java.awt.Color(255, 153, 153));
         btn_ventas.setText("Ventas");
         btn_ventas.setBackgroundHover(new java.awt.Color(255, 51, 204));
@@ -83,7 +75,7 @@ public class Menu extends javax.swing.JFrame {
                 btn_ventasActionPerformed(evt);
             }
         });
-        rSPanelBorderGradient1.add(btn_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 190, -1));
+        rSPanelBorderGradient1.add(btn_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 190, -1));
 
         btn_compras.setBackground(new java.awt.Color(255, 153, 153));
         btn_compras.setText("Compras");
@@ -94,7 +86,7 @@ public class Menu extends javax.swing.JFrame {
                 btn_comprasActionPerformed(evt);
             }
         });
-        rSPanelBorderGradient1.add(btn_compras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 190, -1));
+        rSPanelBorderGradient1.add(btn_compras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 190, -1));
 
         btn_productos2.setBackground(new java.awt.Color(255, 153, 153));
         btn_productos2.setText("Productos");
@@ -104,7 +96,7 @@ public class Menu extends javax.swing.JFrame {
                 btn_productos2ActionPerformed(evt);
             }
         });
-        rSPanelBorderGradient1.add(btn_productos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 190, -1));
+        rSPanelBorderGradient1.add(btn_productos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 190, -1));
 
         rSPanelMaterialImage1.setBackground(new java.awt.Color(255, 102, 153));
         rSPanelMaterialImage1.setBgShade(new java.awt.Color(255, 102, 153));
@@ -140,6 +132,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_cerrar.setBackground(new java.awt.Color(255, 204, 204));
         btn_cerrar.setForeground(new java.awt.Color(0, 0, 0));
@@ -152,43 +145,60 @@ public class Menu extends javax.swing.JFrame {
                 btn_cerrarActionPerformed(evt);
             }
         });
+        jPanel1.add(btn_cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1123, 0, 27, 24));
 
         rSPanelMaterial1.setBackground(new java.awt.Color(255, 204, 204));
         rSPanelMaterial1.setShadowBottom(false);
         rSPanelMaterial1.setShadowLeft(false);
         rSPanelMaterial1.setShadowRight(false);
         rSPanelMaterial1.setShadowTop(false);
+        rSPanelMaterial1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout rSPanelMaterial1Layout = new javax.swing.GroupLayout(rSPanelMaterial1);
-        rSPanelMaterial1.setLayout(rSPanelMaterial1Layout);
-        rSPanelMaterial1Layout.setHorizontalGroup(
-            rSPanelMaterial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1150, Short.MAX_VALUE)
+        rSPanelMaterial2.setBackground(new java.awt.Color(227, 166, 248));
+        rSPanelMaterial2.setRound(50);
+        rSPanelMaterial2.setShadowBottom(false);
+        rSPanelMaterial2.setShadowLeft(false);
+        rSPanelMaterial2.setShadowRight(false);
+        rSPanelMaterial2.setShadowTop(false);
+
+        cbox_producto.setBackground(new java.awt.Color(227, 166, 248));
+        cbox_producto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione..." }));
+        cbox_producto.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbox_productoItemStateChanged(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setText("Stock Actual:");
+
+        javax.swing.GroupLayout rSPanelMaterial2Layout = new javax.swing.GroupLayout(rSPanelMaterial2);
+        rSPanelMaterial2.setLayout(rSPanelMaterial2Layout);
+        rSPanelMaterial2Layout.setHorizontalGroup(
+            rSPanelMaterial2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(rSPanelMaterial2Layout.createSequentialGroup()
+                .addGroup(rSPanelMaterial2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(rSPanelMaterial2Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(rSPanelMaterial2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(cbox_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        rSPanelMaterial1Layout.setVerticalGroup(
-            rSPanelMaterial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 558, Short.MAX_VALUE)
+        rSPanelMaterial2Layout.setVerticalGroup(
+            rSPanelMaterial2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(rSPanelMaterial2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(cbox_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btn_cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(rSPanelMaterial1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(btn_cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(rSPanelMaterial1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        rSPanelMaterial1.add(rSPanelMaterial2, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 11, 270, 170));
+
+        jPanel1.add(rSPanelMaterial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 35, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(255, 204, 204));
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -222,9 +232,9 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btn_minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 512, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -248,16 +258,16 @@ public class Menu extends javax.swing.JFrame {
        this.setLocation(this.getLocation().x + evt.getX() - x, this.getLocation().y + evt.getY() - y);
     }//GEN-LAST:event_jLabel1MouseDragged
 
-    private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
-
-    }//GEN-LAST:event_btn_homeActionPerformed
-
     private void btn_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ventasActionPerformed
-
+        MenuVentas menV = new MenuVentas();
+        menV.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btn_ventasActionPerformed
 
     private void btn_comprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_comprasActionPerformed
-      
+        MenuCompras venting = new MenuCompras();
+        venting.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btn_comprasActionPerformed
 
     private void btn_productos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_productos2ActionPerformed
@@ -265,6 +275,24 @@ public class Menu extends javax.swing.JFrame {
         menprodf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_productos2ActionPerformed
+
+    private void cbox_productoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbox_productoItemStateChanged
+       
+        Metodos met = new Metodos();
+        if(cbox_producto.getSelectedItem().equals("Seleccione...")){
+            jLabel2.setText("Stock Actual: ");
+            cbox_producto.requestFocus();
+            
+        }else{
+            String Seleccionado = cbox_producto.getSelectedItem().toString();
+            String CodigoProducto = met.ObtenerIdProducto(Seleccionado);
+            VentaMercaderiaDetalle objIngresoDet = new VentaMercaderiaDetalle();
+            objIngresoDet.setProdCodigo(CodigoProducto);
+            int Stock =met.TraerStock(objIngresoDet);
+            jLabel2.setText("Stock Actual: "+Stock);
+            
+        }
+    }//GEN-LAST:event_cbox_productoItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -304,14 +332,16 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private RSMaterialComponent.RSButtonIconOne btn_cerrar;
     public RSMaterialComponent.RSButtonMaterialIconOne btn_compras;
-    public RSMaterialComponent.RSButtonMaterialIconOne btn_home;
     private RSMaterialComponent.RSButtonIconOne btn_minimizar;
     public RSMaterialComponent.RSButtonMaterialIconOne btn_productos2;
     public RSMaterialComponent.RSButtonMaterialIconOne btn_ventas;
+    private RSMaterialComponent.RSComboBoxMaterial cbox_producto;
     public javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private RSMaterialComponent.RSPanelBorderGradient rSPanelBorderGradient1;
     private RSMaterialComponent.RSPanelMaterial rSPanelMaterial1;
+    private RSMaterialComponent.RSPanelMaterial rSPanelMaterial2;
     private RSMaterialComponent.RSPanelMaterialImage rSPanelMaterialImage1;
     // End of variables declaration//GEN-END:variables
 }

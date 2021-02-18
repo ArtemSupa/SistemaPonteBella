@@ -18,11 +18,15 @@ public class Producto {
     private int IdCategoriaProd;
     private byte[] ImagenProd;
     private String EstadoProd;
+    private String NombreCategoria;
+    private String RutaImg;
+
+    
 
     public Producto() {
     }
 
-    public Producto(String CodigoProd, String NombreProd, int ValorCompraProd, int ValorVentaProd, int StockProd, int IdCategoriaProd, byte[] ImagenProd, String EstadoProd) {
+    public Producto(String CodigoProd, String NombreProd, int ValorCompraProd, int ValorVentaProd, int StockProd, int IdCategoriaProd, byte[] ImagenProd, String EstadoProd, String NombreCategoria, String RutaImg) {
         this.CodigoProd = CodigoProd;
         this.NombreProd = NombreProd;
         this.ValorCompraProd = ValorCompraProd;
@@ -31,8 +35,20 @@ public class Producto {
         this.IdCategoriaProd = IdCategoriaProd;
         this.ImagenProd = ImagenProd;
         this.EstadoProd = EstadoProd;
+        this.NombreCategoria = NombreCategoria;
+        this.RutaImg = RutaImg;
     }
 
+   
+    
+public String getNombreCategoria() {
+        return NombreCategoria;
+    }
+
+    public void setNombreCategoria(String NombreCategoria) {
+        this.NombreCategoria = NombreCategoria;
+    }
+    
     public String getCodigoProd() {
         return CodigoProd;
     }
@@ -95,6 +111,14 @@ public class Producto {
 
     public void setEstadoProd(String EstadoProd) {
         this.EstadoProd = EstadoProd;
+    }
+
+    public String getRutaImg() {
+        return RutaImg;
+    }
+
+    public void setRutaImg(String RutaImg) {
+        this.RutaImg = RutaImg;
     }
    
     

@@ -5,8 +5,11 @@
  */
 package bd;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+import oracle.jdbc.OraclePooledConnectionBuilder;
+
 
 /**
  *
@@ -19,6 +22,7 @@ public class Conexion {
         try{
             
             conectar = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","bdpontebella","bdpontebella");
+            
             System.out.println("Conexion Realizada");
         }catch(Exception e){
             System.out.println("Error: "+e.getMessage());            
