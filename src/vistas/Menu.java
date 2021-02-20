@@ -44,6 +44,7 @@ public class Menu extends javax.swing.JFrame {
         btn_compras = new RSMaterialComponent.RSButtonMaterialIconOne();
         btn_productos2 = new RSMaterialComponent.RSButtonMaterialIconOne();
         rSPanelMaterialImage1 = new RSMaterialComponent.RSPanelMaterialImage();
+        btn_compras1 = new RSMaterialComponent.RSButtonMaterialIconOne();
         btn_minimizar = new RSMaterialComponent.RSButtonIconOne();
         jPanel1 = new javax.swing.JPanel();
         btn_cerrar = new RSMaterialComponent.RSButtonIconOne();
@@ -75,7 +76,7 @@ public class Menu extends javax.swing.JFrame {
                 btn_ventasActionPerformed(evt);
             }
         });
-        rSPanelBorderGradient1.add(btn_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 190, -1));
+        rSPanelBorderGradient1.add(btn_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 190, -1));
 
         btn_compras.setBackground(new java.awt.Color(255, 153, 153));
         btn_compras.setText("Compras");
@@ -86,7 +87,7 @@ public class Menu extends javax.swing.JFrame {
                 btn_comprasActionPerformed(evt);
             }
         });
-        rSPanelBorderGradient1.add(btn_compras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 190, -1));
+        rSPanelBorderGradient1.add(btn_compras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 190, -1));
 
         btn_productos2.setBackground(new java.awt.Color(255, 153, 153));
         btn_productos2.setText("Productos");
@@ -96,7 +97,7 @@ public class Menu extends javax.swing.JFrame {
                 btn_productos2ActionPerformed(evt);
             }
         });
-        rSPanelBorderGradient1.add(btn_productos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 190, -1));
+        rSPanelBorderGradient1.add(btn_productos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 190, -1));
 
         rSPanelMaterialImage1.setBackground(new java.awt.Color(255, 102, 153));
         rSPanelMaterialImage1.setBgShade(new java.awt.Color(255, 102, 153));
@@ -114,10 +115,21 @@ public class Menu extends javax.swing.JFrame {
         );
         rSPanelMaterialImage1Layout.setVerticalGroup(
             rSPanelMaterialImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 190, Short.MAX_VALUE)
+            .addGap(0, 180, Short.MAX_VALUE)
         );
 
-        rSPanelBorderGradient1.add(rSPanelMaterialImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 190));
+        rSPanelBorderGradient1.add(rSPanelMaterialImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 180));
+
+        btn_compras1.setBackground(new java.awt.Color(255, 153, 153));
+        btn_compras1.setText("Indicadores");
+        btn_compras1.setBackgroundHover(new java.awt.Color(255, 51, 204));
+        btn_compras1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ASSESSMENT);
+        btn_compras1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_compras1ActionPerformed(evt);
+            }
+        });
+        rSPanelBorderGradient1.add(btn_compras1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 190, -1));
 
         btn_minimizar.setBackground(new java.awt.Color(255, 204, 204));
         btn_minimizar.setForeground(new java.awt.Color(0, 0, 0));
@@ -294,6 +306,12 @@ public class Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbox_productoItemStateChanged
 
+    private void btn_compras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_compras1ActionPerformed
+        MenuIndicadores meni = new MenuIndicadores();
+        meni.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_compras1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -332,6 +350,7 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private RSMaterialComponent.RSButtonIconOne btn_cerrar;
     public RSMaterialComponent.RSButtonMaterialIconOne btn_compras;
+    public RSMaterialComponent.RSButtonMaterialIconOne btn_compras1;
     private RSMaterialComponent.RSButtonIconOne btn_minimizar;
     public RSMaterialComponent.RSButtonMaterialIconOne btn_productos2;
     public RSMaterialComponent.RSButtonMaterialIconOne btn_ventas;

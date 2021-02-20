@@ -31,6 +31,7 @@ public class MenuVentas extends javax.swing.JFrame {
 
         rSPanelMaterial1 = new RSMaterialComponent.RSPanelMaterial();
         rSButtonBigIcon_new1 = new newscomponents.RSButtonBigIcon_new();
+        rSButtonBigIcon_new2 = new newscomponents.RSButtonBigIcon_new();
         rSButtonIcon_new1 = new newscomponents.RSButtonIcon_new();
         rSButtonIconOne1 = new RSMaterialComponent.RSButtonIconOne();
         rSButtonIconOne2 = new RSMaterialComponent.RSButtonIconOne();
@@ -62,6 +63,22 @@ public class MenuVentas extends javax.swing.JFrame {
             }
         });
         rSPanelMaterial1.add(rSButtonBigIcon_new1, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 171, 181, 185));
+
+        rSButtonBigIcon_new2.setBackground(new java.awt.Color(255, 204, 204));
+        rSButtonBigIcon_new2.setBorder(null);
+        rSButtonBigIcon_new2.setText("Historial de ventas");
+        rSButtonBigIcon_new2.setBgHover(new java.awt.Color(220, 175, 175));
+        rSButtonBigIcon_new2.setBgShade(new java.awt.Color(255, 204, 204));
+        rSButtonBigIcon_new2.setBgShadeHover(new java.awt.Color(255, 204, 204));
+        rSButtonBigIcon_new2.setFgIcon(new java.awt.Color(204, 102, 255));
+        rSButtonBigIcon_new2.setFgText(new java.awt.Color(204, 102, 255));
+        rSButtonBigIcon_new2.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.HISTORY);
+        rSButtonBigIcon_new2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonBigIcon_new2ActionPerformed(evt);
+            }
+        });
+        rSPanelMaterial1.add(rSButtonBigIcon_new2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, 181, 185));
 
         getContentPane().add(rSPanelMaterial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1330, 550));
 
@@ -149,6 +166,12 @@ public class MenuVentas extends javax.swing.JFrame {
         this.setLocation(this.getLocation().x + evt.getX() - x, this.getLocation().y + evt.getY() - y);
     }//GEN-LAST:event_jLabel1MouseDragged
 
+    private void rSButtonBigIcon_new2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonBigIcon_new2ActionPerformed
+        VENT_histVent historial = new VENT_histVent();
+        historial.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_rSButtonBigIcon_new2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -194,6 +217,7 @@ public class MenuVentas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private newscomponents.RSButtonBigIcon_new rSButtonBigIcon_new1;
+    private newscomponents.RSButtonBigIcon_new rSButtonBigIcon_new2;
     private RSMaterialComponent.RSButtonIconOne rSButtonIconOne1;
     private RSMaterialComponent.RSButtonIconOne rSButtonIconOne2;
     private newscomponents.RSButtonIcon_new rSButtonIcon_new1;

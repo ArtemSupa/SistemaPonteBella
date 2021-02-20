@@ -12,17 +12,19 @@ import javax.swing.table.DefaultTableModel;
 import modelo.IngresoMercaderia;
 import modelo.IngresoMercaderiaDetalle;
 import modelo.Producto;
+import modelo.VentaMercaderia;
+import modelo.VentaMercaderiaDetalle;
 
 /**
  *
  * @author ArtemSupa
  */
-public class COMP_histComp extends javax.swing.JFrame {
+public class VENT_histVent extends javax.swing.JFrame {
 
     /**
      * Creates new form COMP_histComp
      */
-    public COMP_histComp() {
+    public VENT_histVent() {
         initComponents();
         LlenaGrilla();
     }
@@ -53,18 +55,18 @@ public class COMP_histComp extends javax.swing.JFrame {
 
         
         Metodos met = new Metodos();
-        ArrayList<IngresoMercaderia> listIngreso = new ArrayList<IngresoMercaderia>();
+        ArrayList<VentaMercaderia> listVenta = new ArrayList<VentaMercaderia>();
         
         //listProducto = met.ListarDatosProductocompletoconCondicion();
-        listIngreso = met.ListarHistorialCompracompleto();
+        listVenta = met.ListarHistorialVentacompleto();
         
         
         
         IngresoMercaderia ingreso = new IngresoMercaderia();
-        Iterator<IngresoMercaderia> intIngreso = listIngreso.iterator();
+        Iterator<VentaMercaderia> intIngreso = listVenta.iterator();
         while(intIngreso.hasNext()){
             
-            IngresoMercaderia elemento=intIngreso.next();
+            VentaMercaderia elemento=intIngreso.next();
             
             
             Object[] vi = new Object[]{elemento.getId(),elemento.getIngrFecha(),elemento.getIngrTotal(),elemento.getIngrEstado(),elemento.getIngrDescuento()};
@@ -103,18 +105,18 @@ public class COMP_histComp extends javax.swing.JFrame {
         
         
         Metodos met = new Metodos();
-        ArrayList<IngresoMercaderiaDetalle> listDetIngreso = new ArrayList<IngresoMercaderiaDetalle>();
-        
-        //listProducto = met.ListarDatosProductocompletoconCondicion();
-        listDetIngreso = met.ListarHistorialCompraDetcompleto(id);
+        ArrayList<VentaMercaderiaDetalle> listDetVenta = new ArrayList<VentaMercaderiaDetalle>();
         
         
+        listDetVenta = met.ListarHistorialVentaDetcompleto(id);
         
-        IngresoMercaderiaDetalle Detingreso = new IngresoMercaderiaDetalle();
-        Iterator<IngresoMercaderiaDetalle> intIngreso = listDetIngreso.iterator();
+        
+        
+        VentaMercaderiaDetalle Detingreso = new VentaMercaderiaDetalle();
+        Iterator<VentaMercaderiaDetalle> intIngreso = listDetVenta.iterator();
         while(intIngreso.hasNext()){
             
-            IngresoMercaderiaDetalle elemento=intIngreso.next();
+            VentaMercaderiaDetalle elemento=intIngreso.next();
             
             
             Object[] vi = new Object[]{elemento.getIdDetalleVenta(),elemento.getDetaCantidad(),elemento.getDetaPrecio(),elemento.getProdCodigo()};
@@ -197,11 +199,11 @@ public class COMP_histComp extends javax.swing.JFrame {
         rSPanelMaterial1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 1270, 180));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Compra");
+        jLabel2.setText("Venta");
         rSPanelMaterial1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 250, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Detalle de la compra");
+        jLabel3.setText("Detalle de la venta");
         rSPanelMaterial1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 284, 250, 30));
 
         getContentPane().add(rSPanelMaterial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1330, 550));
@@ -270,7 +272,7 @@ public class COMP_histComp extends javax.swing.JFrame {
     }//GEN-LAST:event_rSButtonIconOne2ActionPerformed
 
     private void rSButtonIcon_new1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonIcon_new1ActionPerformed
-        MenuCompras m = new MenuCompras();
+        MenuVentas m = new MenuVentas();
         m.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_rSButtonIcon_new1ActionPerformed
@@ -308,20 +310,21 @@ int x,y;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(COMP_histComp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VENT_histVent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(COMP_histComp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VENT_histVent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(COMP_histComp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VENT_histVent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(COMP_histComp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VENT_histVent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new COMP_histComp().setVisible(true);
+                new VENT_histVent().setVisible(true);
             }
         });
     }

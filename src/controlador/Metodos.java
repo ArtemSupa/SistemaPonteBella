@@ -703,7 +703,7 @@ public String ObtenerNombreCategoria(int IdCategoria){
                 
         try {
            Statement s = c.createStatement();           
-           String consulta = "Select id_ingreso,ingr_fecha,ingr_total,ingr_estado,ingr_descuento from ingresomercaderia ";       
+           String consulta = "Select id_ingreso,ingr_fecha,ingr_total,ingr_estado,ingr_descuento from ingresomercaderia order by ingr_fecha desc";       
            
 
            ResultSet res = s.executeQuery(consulta);
@@ -739,7 +739,12 @@ public String ObtenerNombreCategoria(int IdCategoria){
                 
         try {
            //Statement s = c.createStatement();           
-           String consulta = "Select id_detalle_ingreso,detaingr_cantidad,detaingr_precio,prod_codigo from detalleingreso where id_ingreso=?";       
+                 
+           String consulta = "Select id_detalle_ingreso,detaingr_cantidad,detaingr_precio,prod_nombre "
+                   + "from detalleingreso"
+                   + " join producto using (prod_codigo) "
+                   + "where id_ingreso=?";
+           
            PreparedStatement pst = c.prepareStatement(consulta);
            pst.setString(1, idCompra);
 
@@ -752,7 +757,7 @@ public String ObtenerNombreCategoria(int IdCategoria){
                objIngresodet.setIdDetalleVenta(Integer.parseInt(res.getObject("id_detalle_ingreso").toString()));
                objIngresodet.setDetaCantidad(Integer.parseInt(res.getObject("detaingr_cantidad").toString()));
                objIngresodet.setDetaPrecio(Integer.parseInt(res.getObject("detaingr_precio").toString()));
-               objIngresodet.setProdCodigo(res.getObject("prod_codigo").toString());
+               objIngresodet.setProdCodigo(res.getObject("prod_nombre").toString());
 
                listDetIngreso.add(objIngresodet);
                
@@ -765,6 +770,131 @@ public String ObtenerNombreCategoria(int IdCategoria){
         
         return listDetIngreso;
     }     
+        
+        
+         public ArrayList<VentaMercaderia> ListarHistorialVentacompleto( ){
+        ArrayList<VentaMercaderia> listVenta = new ArrayList<VentaMercaderia>();
+   
+        Conexion con =  new Conexion();
+        Connection c = con.conectar();
+                
+        try {
+           Statement s = c.createStatement();           
+           String consulta = "Select id_venta,vent_fecha,venta_total,vent_estado,vent_descuento from venta order by vent_fecha desc";       
+           
+
+           ResultSet res = s.executeQuery(consulta);
+           
+           while (res.next()){
+               
+               VentaMercaderia objVentaMercaderia= new VentaMercaderia();
+               
+               
+               objVentaMercaderia.setId(Integer.parseInt(res.getObject("id_venta").toString()));
+               objVentaMercaderia.setIngrFecha(res.getObject("vent_fecha").toString());
+               objVentaMercaderia.setIngrTotal(Integer.parseInt(res.getObject("venta_total").toString()));
+               objVentaMercaderia.setIngrEstado(res.getObject("vent_estado").toString());
+               objVentaMercaderia.setIngrDescuento(Integer.parseInt(res.getObject("vent_descuento").toString()));
+
+               listVenta.add(objVentaMercaderia);
+               
+           }
+                    c.close();
+           
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }        
+        
+        return listVenta;
+    }  
+   
+         
+         
+          public ArrayList<VentaMercaderiaDetalle> ListarHistorialVentaDetcompleto(String idventa ){
+        ArrayList<VentaMercaderiaDetalle> listDetVenta = new ArrayList<VentaMercaderiaDetalle>();
+   
+        Conexion con =  new Conexion();
+        Connection c = con.conectar();
+                
+        try {
+    
+           String consulta = "Select id_detalle_venta,deta_cantidad,deta_precio,prod_nombre "
+                   + "from detalleventa"
+                   + " join producto using (prod_codigo) "
+                   + "where id_venta=?";
+           
+           PreparedStatement pst = c.prepareStatement(consulta);
+           pst.setString(1, idventa);
+
+           ResultSet res = pst.executeQuery();
+           
+           while (res.next()){
+               
+               VentaMercaderiaDetalle objVentaMercaderiaDetalle= new VentaMercaderiaDetalle();
+               
+               objVentaMercaderiaDetalle.setIdDetalleVenta(Integer.parseInt(res.getObject("id_detalle_venta").toString()));
+               objVentaMercaderiaDetalle.setDetaCantidad(Integer.parseInt(res.getObject("deta_cantidad").toString()));
+               objVentaMercaderiaDetalle.setDetaPrecio(Integer.parseInt(res.getObject("deta_precio").toString()));
+               objVentaMercaderiaDetalle.setProdCodigo(res.getObject("prod_nombre").toString());
+
+               listDetVenta.add(objVentaMercaderiaDetalle);
+               
+           }
+                    c.close();
+           
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }        
+        
+        return listDetVenta;
+    }   
+          
+        public int TraerInversion() {
+            java.sql.Connection conectar = null;
+
+            
+            String consulta = "Select sum(ingr_total) from ingresomercaderia";
+
+            try {
+                conectar = con.conectar();
+                PreparedStatement pst = conectar.prepareStatement(consulta);
+                ResultSet resultado = pst.executeQuery();
+                resultado.next();
+                
+                int Invertido = Integer.parseInt(resultado.getString("sum(ingr_total)"));
+                conectar.close();
+                return Invertido;
+
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+            } 
+   
+            return 0;
+        }
+   
+        
+        public int TraerVentas() {
+            java.sql.Connection conectar = null;
+
+            
+            String consulta = "Select sum(venta_total) from venta";
+
+            try {
+                conectar = con.conectar();
+                PreparedStatement pst = conectar.prepareStatement(consulta);
+                ResultSet resultado = pst.executeQuery();
+                resultado.next();
+                
+                int Invertido = Integer.parseInt(resultado.getString("sum(venta_total)"));
+                conectar.close();
+                return Invertido;
+
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+            } 
+   
+            return 0;
+        }
    
 }
 

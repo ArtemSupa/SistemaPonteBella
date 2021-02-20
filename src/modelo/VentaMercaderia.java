@@ -10,6 +10,7 @@ package modelo;
  * @author ArtemSupa
  */
 public class VentaMercaderia {
+    private int id;
     private String ingrFecha;
     private int ingrTotal;
     private String ingrEstado;
@@ -19,12 +20,21 @@ public class VentaMercaderia {
     public VentaMercaderia() {
     }
 
-    public VentaMercaderia(String ingrFecha, int ingrTotal, String ingrEstado, int ingrDescuento, int ingrsubtotal) {
+    public VentaMercaderia(int id, String ingrFecha, int ingrTotal, String ingrEstado, int ingrDescuento, int ingrsubtotal) {
+        this.id = id;
         this.ingrFecha = ingrFecha;
         this.ingrTotal = ingrTotal;
         this.ingrEstado = ingrEstado;
         this.ingrDescuento = ingrDescuento;
         this.ingrsubtotal = ingrsubtotal;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getIngrFecha() {
@@ -67,5 +77,6 @@ public class VentaMercaderia {
         this.ingrsubtotal = ingrsubtotal;
     }
 
+    
    
 }
