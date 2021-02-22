@@ -26,6 +26,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import modelo.CategoriaProd;
 import modelo.IngresoMercaderia;
 import modelo.IngresoMercaderiaDetalle;
 import modelo.Producto;
@@ -810,7 +811,7 @@ public String ObtenerNombreCategoria(int IdCategoria){
    
          
          
-          public ArrayList<VentaMercaderiaDetalle> ListarHistorialVentaDetcompleto(String idventa ){
+        public ArrayList<VentaMercaderiaDetalle> ListarHistorialVentaDetcompleto(String idventa ){
         ArrayList<VentaMercaderiaDetalle> listDetVenta = new ArrayList<VentaMercaderiaDetalle>();
    
         Conexion con =  new Conexion();
@@ -895,7 +896,90 @@ public String ObtenerNombreCategoria(int IdCategoria){
    
             return 0;
         }
+        
+        
+        public boolean InsertarDatosCatProd( CategoriaProd Objetocat ){
+       
+        Producto prod = new Producto();
+        Connection c = con.conectar();
+        
+        try {
+                CallableStatement cs = c.prepareCall("{call Proc_CategoriaProd(?,?,?)}");
+                cs.setString(1,Objetocat.getNombre());
+                cs.setString(2,Objetocat.getDescripcion());
+                cs.setString(3,Objetocat.getEstado());
+                cs.executeQuery();
+                System.out.println("Procedimiento ejecutado correctamente");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }        
+        
+        return true;
+    }
+
+   public ArrayList<CategoriaProd> ListarCatProducto(){
+        ArrayList<CategoriaProd> listCatProd = new ArrayList<CategoriaProd>();
    
+        Conexion con =  new Conexion();
+        Connection c = con.conectar();
+                
+        try {
+    
+           String consulta = "Select id_categoria,cate_nombre,cate_descripcion,cate_estado from categoriaproducto order by id_categoria asc";
+           
+           PreparedStatement pst = c.prepareStatement(consulta);
+           
+           ResultSet res = pst.executeQuery();
+           
+           while(res.next()){
+               CategoriaProd cat= new CategoriaProd();
+               cat.setId( Integer.parseInt(res.getObject("id_categoria").toString()));
+               cat.setNombre(res.getObject("cate_nombre").toString());
+               cat.setDescripcion(res.getObject("cate_descripcion").toString());
+               cat.setEstado(res.getObject("cate_estado").toString());
+
+               listCatProd.add(cat);
+           
+           }
+            
+             c.close();
+           
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }        
+        
+        return listCatProd;
+    }        
+       
+   
+    public void UpdateCatProd(CategoriaProd objetoCat) {
+            java.sql.Connection conectar = null;
+
+            
+            String consulta = "update categoriaproducto set "
+                    + "cate_nombre = ?,"
+                    + "cate_descripcion = ?"
+                    + "where id_categoria = ?";
+
+            try {
+                conectar = con.conectar();
+                PreparedStatement pst = conectar.prepareStatement(consulta);
+                pst.setString(1, objetoCat.getNombre());
+                pst.setString(2, objetoCat.getDescripcion());
+                pst.setString(3, String.valueOf(objetoCat.getId()));
+                ResultSet resultado = pst.executeQuery();
+                resultado.next();
+                conectar.close();
+                
+
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+            } 
+   
+           
+        }
 }
 
 

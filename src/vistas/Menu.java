@@ -45,6 +45,7 @@ public class Menu extends javax.swing.JFrame {
         btn_productos2 = new RSMaterialComponent.RSButtonMaterialIconOne();
         rSPanelMaterialImage1 = new RSMaterialComponent.RSPanelMaterialImage();
         btn_compras1 = new RSMaterialComponent.RSButtonMaterialIconOne();
+        rSButtonIconOne1 = new RSMaterialComponent.RSButtonIconOne();
         btn_minimizar = new RSMaterialComponent.RSButtonIconOne();
         jPanel1 = new javax.swing.JPanel();
         btn_cerrar = new RSMaterialComponent.RSButtonIconOne();
@@ -129,7 +130,18 @@ public class Menu extends javax.swing.JFrame {
                 btn_compras1ActionPerformed(evt);
             }
         });
-        rSPanelBorderGradient1.add(btn_compras1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 190, -1));
+        rSPanelBorderGradient1.add(btn_compras1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 190, -1));
+
+        rSButtonIconOne1.setBackground(new java.awt.Color(255, 102, 153));
+        rSButtonIconOne1.setBackgroundHover(new java.awt.Color(207, 82, 124));
+        rSButtonIconOne1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.SETTINGS);
+        rSButtonIconOne1.setSizeIcon(30.0F);
+        rSButtonIconOne1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonIconOne1ActionPerformed(evt);
+            }
+        });
+        rSPanelBorderGradient1.add(rSButtonIconOne1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 500, 30, 30));
 
         btn_minimizar.setBackground(new java.awt.Color(255, 204, 204));
         btn_minimizar.setForeground(new java.awt.Color(0, 0, 0));
@@ -245,7 +257,7 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 512, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -312,6 +324,12 @@ public class Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_compras1ActionPerformed
 
+    private void rSButtonIconOne1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonIconOne1ActionPerformed
+        MenuAjustes ajustes = new MenuAjustes();
+        ajustes.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_rSButtonIconOne1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -358,6 +376,7 @@ public class Menu extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private RSMaterialComponent.RSButtonIconOne rSButtonIconOne1;
     private RSMaterialComponent.RSPanelBorderGradient rSPanelBorderGradient1;
     private RSMaterialComponent.RSPanelMaterial rSPanelMaterial1;
     private RSMaterialComponent.RSPanelMaterial rSPanelMaterial2;

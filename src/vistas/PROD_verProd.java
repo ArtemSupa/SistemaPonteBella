@@ -84,16 +84,7 @@ public void LlenaGrilla(){
         listProducto = met.ListarDatosProducto();
         
         
-        if(txt_filtronomprod.getText().equals("")){
-         
-        }else{
-            
-            if(listProducto.size()<=0){
-                JOptionPane.showMessageDialog(null, "Nombre de producto no existe en nuestros registros");
-                txt_filtronomprod.setText("");
-                txt_filtronomprod.requestFocus();
-            }
-        }    
+          
         
         Iterator<Producto> intProducto = listProducto.iterator();
         while(intProducto.hasNext()){
